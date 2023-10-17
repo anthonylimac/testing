@@ -12,12 +12,12 @@ const INCREMENT_WITH_INPUT = "increment-with-input";
 
 //this function will have the current state of the object plus the object sent when calling "dispatch()",
 //whatever we have set to dispatch, will be received as action.
-//for a more secure use, we do not modify the state, instead we create a new object, and assign the entire state to the new one
-//and make the changes, just calling ...state, it will set all the states to the new object.
+//as of now, using produce from immer library, we no longer need to create a new object, immer is taking care of applying all the state attributes
+//to the new one, and returning it to the state itself
 const reducer = (state, action) => {
   switch(action.type){
 
-    //incrementing count, setting the entire object to the new one, and also adding +1 to the current state of count.
+    //using produce, we no longer need to add the entire state to the response, we can directly modify the state and just use the return statement
     case INCREMENT_COUNT:
       state.count = state.count +1;
       return;
@@ -49,6 +49,7 @@ function CounterPage({ initialCount }) {
   //want to update the state of 'state'.
   //useReducer also have 2 arguments, first will be the function that will be called when we run 'dispatch, second is the initial
   //value provided to the state.
+  //now we are wrapping the reducer function using immer produce, with that, we no longer need to create a new object to not modify the current state.
   const [state, dispatch] = useReducer(produce (reducer), {
     count: initialCount,
     valueToAdd: 0,
