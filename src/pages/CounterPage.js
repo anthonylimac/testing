@@ -1,7 +1,7 @@
 import Button from "../components/Button";
 import { useReducer } from "react";
 import Panel from "../components/Panel";
-import  produce  from "immer";
+import  {produce}  from "immer";
 
 //creating constants to avoid misstype when calling dispatch
 const INCREMENT_COUNT = "increment-counter";
@@ -19,31 +19,23 @@ const reducer = (state, action) => {
 
     //incrementing count, setting the entire object to the new one, and also adding +1 to the current state of count.
     case INCREMENT_COUNT:
-      return {
-        ...state,
-        count: state.count + 1,
-      };
+      state.count = state.count +1;
+      return;
 
     case DECREMENT_COUNT:
-      return {
-        ...state,
-        count: state.count - 1,
-      };
+      state.count = state.count -1;
+      return;      
 
     case VALUE_TO_ADD:
-      return {
-        ...state,
-        valueToAdd: action.payLoad,
-      };
+      state.valueToAdd = action.payLoad;
+      return;
 
       // here we are receiving a call to increment the state of count, adding the value provided in the input,
       //calling state.count + state.valueToAdd, will add the value provided in the input to the state of count.
     case INCREMENT_WITH_INPUT:
-      return {
-        ...state,
-        count: state.count + state.valueToAdd,
-        valueToAdd: 0
-      };
+      state.count = state.count + state.valueToAdd;
+      state.valueToAdd = 0;
+      return;     
 
     default:
       return state;    
