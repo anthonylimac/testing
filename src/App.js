@@ -5,6 +5,9 @@ import ButtonPage from "./pages/ButtonPage";
 import Sidebar from "./components/Sidebar";
 import ModalPage from "./pages/ModalPage";
 import TablePage from "./pages/TablePage";
+import WelcomePage from "./pages/WelcomePage";
+import CounterPage from "./pages/CounterPage";
+import PlayersPage from "./pages/PlayersPage";
 
 function App() {
   return (
@@ -25,6 +28,15 @@ function App() {
         </Route>
         <Route path="/table">
           <TablePage/>
+        </Route>
+        <Route path="/">
+          <WelcomePage/>
+        </Route>
+        <Route path="/counter">
+          <CounterPage initialCount={10}/>
+        </Route>
+        <Route path="/players">
+          <PlayersPage />
         </Route>
       </div>
     </div>

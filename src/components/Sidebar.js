@@ -2,12 +2,14 @@ import Link from "./Link";
 
 function Sidebar() {
   const links = [
+    { label: "Welcome", path: "/"},
     { label: "Dropdown", path: "/dropdown" },
     { label: "Accordion", path: "/accordion" },
     { label: "Buttons", path: "/buttons" },
     { label: "Modal", path: "/modal" },
     { label: "Table", path: "/table" },
-
+    { label: "Counter", path: "/counter" },
+    { label: "Players", path: "/players" },
   ];
 
   const renderedLinks = links.map((link) => {

@@ -11,10 +11,10 @@ function ButtonPage() {
   return (
     <div>
       <div >
-        <Button success rounded onClick={handleClick} className='mb-2' ><IoLogoBitcoin/>Click my ass</Button>
+        <Button success rounded onClick={handleClick} ><IoLogoBitcoin/>Click my ass</Button>
       </div>
       <div>
-        <Button secundary rounded onClick={handleClick}>buy now</Button>
+        <Button secundary rounded onClick={handleClick} >buy now</Button>
       </div>
       <div>
         <Button warning rounded onClick={handleClick}><IoIosBonfire/>check deal </Button>
